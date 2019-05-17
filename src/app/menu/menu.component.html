@@ -8,12 +8,14 @@
                 [ngClass]="{ 'show': isCollapsed }">            
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/listaProductos">Productos</a>
+                    <a class="nav-link" routerLink="/listaProductos/{{id}}" id="menu-description">Productos</a>
                 </li>                
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/carrito">Carrito</a>
+                    <a class="nav-link" routerLink="/carrito" id="menu-description">Carrito</a>
                 </li>
             </ul>
         </div> 
-        {{productos}}       
+        <div *ngFor="let item of productos">
+            <p style="color: red">{{item.name}}+</p>
+        </div>      
 </nav>

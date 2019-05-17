@@ -13,21 +13,23 @@ import { Producto } from '../clases/Producto';
 export class MenuComponent implements OnInit {
 
   isCollapsed = null;
-  public productos : Array<Producto>;
+  public categorias : Categoria[];
+  public id : number;
 
-  constructor(private service: ProductsService) {
-    this.productos = new Array<Producto>();
+  constructor(private service: CategoriaService) {
+    console.log("Construyendo el componente");
+    this.id = 8;
   }
-
+  
   ngOnInit() {
+    console.log("Construyendo el ngOnInit");
     this.isCollapsed = false;
-    this.service.getProductos().subscribe((data: Array<Producto>) => {
-      this.productos = Array<Producto>();
-      Array.prototype.push.apply(this.productos, data["products"]);
-      
-      console.log(this.productos);
+    this.service.getCategorias().subscribe(data => {
+      if(data["categories"] != null && data["categories"] != []){
+        this.categorias = data["categories"];     
+      }
+      console.log(this.categorias);   
     });
-   
   }
   
   toggleNavbar(){

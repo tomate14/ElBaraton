@@ -1,3 +1,8 @@
 .navbar-nav {
     display: inline-block;
 }
+#menu-description{
+    font-family: 'Baloo Bhai', cursive;
+    color: azure;
+    font-size: 1em;
+}

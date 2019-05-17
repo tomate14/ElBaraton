@@ -10,7 +10,7 @@ export class CategoriaService {
 
   constructor(private http: HttpClient) { }
 
-  getCategorias(){
+  getCategorias(): Observable<Categoria[]>{
     return this.http.get<Categoria[]>('../assets/categories.json');
   }
 }

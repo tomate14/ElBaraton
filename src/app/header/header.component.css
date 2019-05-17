@@ -1,3 +1,10 @@
-.headerTitle{
-    background: red;
+
+
+
+h1#header{
+    font-family: 'Baloo Bhai', cursive;
+    text-align: center;
+    color: darkred;
+    font-size: 5em;
+    margin-bottom: 30px;
 }
