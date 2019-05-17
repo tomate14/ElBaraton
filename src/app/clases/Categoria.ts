@@ -3,19 +3,12 @@ export class Categoria{
 
     private _name: string;
     private _id: number;
-    private _sublevels: Array<Categoria>;
+    private _sublevels: Categoria[];
     
-    constructor(id:number, name:string, sublevels:Array<Categoria>){
+    constructor(id:number, name:string, sublevels:Categoria[]){
         this._id = id;
         this._name = name;
         this._sublevels = sublevels;
-    }
-
-    public get sublevels(): Array<Categoria> {
-        return this._sublevels;
-    }
-    public set sublevels(value: Array<Categoria>) {
-        this._sublevels = value;
     }
 
     public get name(): string {
@@ -30,6 +23,15 @@ export class Categoria{
     public set id(value: number) {
         this._id = value;
     }
+    public get sublevels(): Categoria[] {
+        return this._sublevels;
+    }
+    public set sublevels(value: Categoria[]) {
+        this._sublevels = value;
+    }
+
+
+
 
     
     

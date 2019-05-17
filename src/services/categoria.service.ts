@@ -8,19 +8,9 @@ import { Observable } from 'rxjs';
 })
 export class CategoriaService {
 
-  constructor(private http: HttpClient) {
-    this.getJSON().subscribe(data => {
-      console.log(data);
-    });
+  constructor(private http: HttpClient) { }
 
-   }
-
-   public getJSON(): Observable<any> {
-      return this.http.get("../data/categories.json");
-  }
-
-  public getCategorias():Array<Categoria> {
-    return null;
-
+  getCategorias(){
+    return this.http.get<Categoria[]>('../assets/categories.json');
   }
 }

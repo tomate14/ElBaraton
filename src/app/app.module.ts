@@ -11,6 +11,7 @@ import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouteviewComponent } from './routeview/routeview.component';
 import { CategoriaService} from '../services/categoria.service';
+import { ProductsService } from '../services/products.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CategoriaService} from '../services/categoria.service';
     HttpClientModule
   ],  
   providers: [
-    CategoriaService
+    CategoriaService,
+    ProductsService
   ],
   bootstrap: [AppComponent]
 })
