@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RouteviewComponent } from './routeview/routeview.component';
 import { CategoriaService} from '../services/categoria.service';
 import { ProductsService } from '../services/products.service';
+import { CarritoService } from 'src/services/carrito.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ProductsService } from '../services/products.service';
   ],  
   providers: [
     CategoriaService,
-    ProductsService
+    ProductsService,
+    CarritoService
   ],
   bootstrap: [AppComponent]
 })
