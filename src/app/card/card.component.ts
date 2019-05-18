@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Producto } from '../clases/Producto';
 import { ItemCarrito } from '../clases/ItemCarrito';
 import { CarritoService } from 'src/services/carrito.service';
@@ -14,6 +14,7 @@ export class CardComponent implements OnInit {
   @Input() item: Producto;
   @Input() carrito:Producto[];
   @Input() txt_stock:string;
+  @Output() eliminarClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private service_carrito:CarritoService) { 
     console.log(this.txt_stock);
@@ -72,6 +73,7 @@ export class CardComponent implements OnInit {
         return producto.id != item.id
       });
       this.service_carrito.guardarCarrito(this.carrito);
+      this.eliminarClicked.emit(true);  
       //Falta re renderizar el componente
   }
 }

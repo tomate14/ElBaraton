@@ -24,7 +24,7 @@ export class RouteviewComponent implements OnInit {
     this.id = this._route.snapshot.paramMap.get('id');
 
     /* Traigo el carrito de compras */
-    this.carrito = JSON.parse(this.service_carrito.getCarrito());
+    this.carrito = this.service_carrito.getCarrito();
 
     if(this.carrito == null){
         this.carrito = [];

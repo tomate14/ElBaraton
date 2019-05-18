@@ -13,7 +13,7 @@ export class CarritoService {
 
   getCarrito(){
 
-    return localStorage.getItem(this._urlCarrito);
+    return JSON.parse(localStorage.getItem(this._urlCarrito));
   }
 
   guardarCarrito(carrito: Producto[]){

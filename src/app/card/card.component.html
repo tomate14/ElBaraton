@@ -7,10 +7,10 @@
             <p><b>{{txt_stock}}</b> {{item.quantity}}</p>                           
         </div>
         
-        <div *ngIf="!is_carrito" class="card-footer">
+        <ng-container *ngIf="!is_carrito" class="card-footer">
             <button class="btn btn-info btn-sm card-footer-button" (click)="agregarCarrito($event)">Agregar</button>
-        </div>
-        <div *ngIf="is_carrito" class="card-footer container">
+        </ng-container>
+        <ng-container *ngIf="is_carrito" class="card-footer container">
             <div class="row card-modificar">
                 <button class="col-sm-2 btn btn-info btn-sm btnmodicantidad" (click)="decrementar($event)">-</button>
                 
@@ -18,13 +18,12 @@
                 
                 <button class="col-sm-2 btn btn-info btn-sm btnmodicantidad" (click)="incrementar($event)">+</button>
 
-                <div class="col-sm-1"></div>
                 <button type="button" class="remove col-sm-2 btn btn-danger btnmodicantidad" (click)="eliminar($event,item)">
                         <span aria-hidden="true">&times;</span>
                 </button>
 
                 
             </div>
-        </div>
+        </ng-container>
     </div>
 </div>
