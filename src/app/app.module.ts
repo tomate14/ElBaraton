@@ -14,6 +14,7 @@ import { CategoriaService} from '../services/categoria.service';
 import { ProductsService } from '../services/products.service';
 import { CarritoService } from 'src/services/carrito.service';
 import { CardComponent } from './card/card.component';
+import { FiltroComponent } from './filtro/filtro.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CardComponent } from './card/card.component';
     ContentComponent,
     FooterComponent,
     RouteviewComponent,
-    CardComponent
+    CardComponent,
+    FiltroComponent
   ],
   imports: [
     BrowserModule,

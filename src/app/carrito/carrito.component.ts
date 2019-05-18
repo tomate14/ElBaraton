@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { Producto } from '../clases/Producto';
-import { ActivatedRoute } from '@angular/router';
-import { ProductsService } from 'src/services/products.service';
 import { CarritoService } from 'src/services/carrito.service';
 
 @Component({
@@ -10,8 +8,10 @@ import { CarritoService } from 'src/services/carrito.service';
   styleUrls: ['./carrito.component.css']
 })
 export class CarritoComponent implements OnInit {
+
   private carrito : Producto[];
   private txt_stock:string = "Cantidad:";
+  //@ViewChild(ChildComponent) viewChild: ChildComponent;
 
   constructor(private service_carrito:CarritoService) { 
 
@@ -20,10 +20,18 @@ export class CarritoComponent implements OnInit {
   
   ngOnInit() {
     /* Traigo el carrito de compras */
-    this.carrito = JSON.parse(this.service_carrito.getCarrito());
+    this.carrito = this.service_carrito.getCarrito();
   
     if(this.carrito == null){
         this.carrito = [];
+    }
+
+  }
+
+
+  onEliminarClicked(eliminar : boolean){
+    if(eliminar){
+      this.carrito = this.service_carrito.getCarrito();
     }
 
   }
