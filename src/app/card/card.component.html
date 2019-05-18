@@ -1,0 +1,30 @@
+<div class="card card-inverse card-info">
+    <img class="card-img-top" src="https://picsum.photos/200/150/?random">
+    <div class="card-block">                    
+        <p class="card-title">{{item.name}}</p>   
+        <div class="card-text">
+            <p><b>Valor:</b> {{item.price}}</p>
+            <p><b>{{txt_stock}}</b> {{item.quantity}}</p>                           
+        </div>
+        
+        <div *ngIf="!is_carrito" class="card-footer">
+            <button class="btn btn-info btn-sm card-footer-button" (click)="agregarCarrito($event)">Agregar</button>
+        </div>
+        <div *ngIf="is_carrito" class="card-footer container">
+            <div class="row card-modificar">
+                <button class="col-sm-2 btn btn-info btn-sm btnmodicantidad" (click)="decrementar($event)">-</button>
+                
+                <input class="col-sm-4 inputcantidad" value={{item.quantity}} type="number"/>    
+                
+                <button class="col-sm-2 btn btn-info btn-sm btnmodicantidad" (click)="incrementar($event)">+</button>
+
+                <div class="col-sm-1"></div>
+                <button type="button" class="remove col-sm-2 btn btn-danger btnmodicantidad" (click)="eliminar($event,item)">
+                        <span aria-hidden="true">&times;</span>
+                </button>
+
+                
+            </div>
+        </div>
+    </div>
+</div>

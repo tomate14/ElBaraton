@@ -13,6 +13,7 @@ import { RouteviewComponent } from './routeview/routeview.component';
 import { CategoriaService} from '../services/categoria.service';
 import { ProductsService } from '../services/products.service';
 import { CarritoService } from 'src/services/carrito.service';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CarritoService } from 'src/services/carrito.service';
     CarritoComponent,
     ContentComponent,
     FooterComponent,
-    RouteviewComponent
+    RouteviewComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

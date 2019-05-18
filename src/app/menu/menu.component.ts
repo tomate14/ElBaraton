@@ -22,13 +22,13 @@ export class MenuComponent implements OnInit {
   }
   
   ngOnInit() {
-    console.log("Construyendo el ngOnInit");
+    
     this.isCollapsed = false;
     this.service.getCategorias().subscribe(data => {
       if(data["categories"] != null && data["categories"] != []){
         this.categorias = data["categories"];     
       }
-      console.log(this.categorias);   
+      
     });
   }
   
