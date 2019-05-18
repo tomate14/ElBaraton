@@ -1,0 +1,129 @@
+.card {
+    overflow: hidden;
+    padding: 0;
+    border: none;
+    border-radius: .28571429rem;
+    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+    margin-bottom: 20px;
+}
+
+.card-block {
+    position: relative;
+    margin: 0;
+    padding: 0.8em;
+    border: none;
+    border-top: 1px solid rgba(34, 36, 38, .1);
+    box-shadow: none;
+}
+
+.card-img-top {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.card-title {
+    font-weight: 700;
+    line-height: 1.2857em;
+    text-align: center;
+    text-transform: uppercase;
+}
+@media (min-width:1300px){
+    .card-title{
+       font-size: 22px;
+    }
+    .card-text{
+        font-size: 17px;
+    }
+    .btnmodicantidad{
+        width:  40px;
+        height: 40px;
+    }
+}
+
+@media (max-width:1299px) and (min-width:700px){
+    .card-title{
+       font-size: 20px;
+    }
+    .card-text{
+        font-size: 14px;
+    }
+    .btnmodicantidad{
+        width: 30px;
+        height: 30px;
+    }
+}
+@media (max-width:700px) and (min-width:575px) {
+    .card-title{
+       font-size: 14px;
+    }
+    .card-text{
+        font-size: 13px;
+    }
+    .btnmodicantidad{
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width:574px) and (min-width:0px) {
+    .card-title{
+       font-size: 35px;
+    }
+    .card-text{
+        font-size: 20px;
+    }
+    
+    .btnmodicantidad{
+        width: 30px;
+        height: 30px;
+    }
+    .inputcantidad{
+        width: 100px;
+    }
+}
+
+.btnmodicantidad{
+    padding: 0px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+.inputcantidad{
+    text-align: center;
+}
+
+.card-text {
+    clear: both;
+    margin-top: .5em;
+    color: black
+}
+
+
+.card-footer {
+    position: static;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: .75em 1em;
+    background: #fff;
+}
+.card-modificar{
+    justify-content: center;
+}
+button.card-footer-button{
+    float: right;
+}
+
+.card-inverse .btn {
+    border: 1px solid rgba(0, 0, 0, .05);
+}

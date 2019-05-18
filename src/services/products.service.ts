@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductsService {
 
+  public _urlProducto : string = "products";
   constructor(private http: HttpClient) { }
 
   getProductos(): Observable<Producto[]>{
