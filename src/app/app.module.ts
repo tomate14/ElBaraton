@@ -20,7 +20,8 @@ import { FiltroComponent } from './filtro/filtro.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
 import { PreciomenorPipe } from './pipes/preciomenor.pipe';
-import { PreciomayorPipe } from './pipes/preciomayor.pipe'
+import { PreciomayorPipe } from './pipes/preciomayor.pipe';
+import { OrdenproductoPipe } from './pipes/ordenproducto.pipe'
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PreciomayorPipe } from './pipes/preciomayor.pipe'
     FiltroComponent,
     FilterPipe,
     PreciomenorPipe,
-    PreciomayorPipe
+    PreciomayorPipe,
+    OrdenproductoPipe
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,6 @@ import { PreciomayorPipe } from './pipes/preciomayor.pipe'
     CarritoService
   ],
   bootstrap: [AppComponent],
-  exports: [PreciomenorPipe, PreciomayorPipe]
+  exports: [PreciomenorPipe, PreciomayorPipe, OrdenproductoPipe]
 })
 export class AppModule { }
