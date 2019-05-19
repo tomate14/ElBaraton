@@ -45,3 +45,6 @@ Instalar bootstrap (npm install bootstrap --save)
 
 Descargar el repo
 Ejecutar npm install para descargar el node_module e installar la aplicacion
+
+Consideraciones en el ejercicio:
+	--> El filtro por Stock se hace por stock mayor o igual al indicado

@@ -1,15 +1,43 @@
 <div class="container-fluid">
-    <div class="row">
-        <app-filtro></app-filtro>
-    </div>
-    <div class="row">
-            <div *ngFor="let producto of productos" class="col-sm-6 col-lg-4 col-xl-3">
-                <app-card 
-                        [item]="producto"
-                        [carrito]="carrito"
-                        [txt_stock]="txt_stock"
-                        [is_carrito]="false"></app-card>
-                        
+    <div class="row ordenar">
+        <div class="col-sm-2">
+            <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownOrden" ngbDropdownToggle>Ordenar</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownOrden">
+                <div *ngFor="let opcion of ordenarPor">
+                    <button ngbDropdownItem (click)="cambiarOrden(opcion.nombre)">{{opcion.nombre}}</button>
+                </div>                
             </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Precio: </span>
+                </div>
+                <input class="form-control" type="number" min="0" value="0" name="filterStock" [(ngModel)]="filterMayor" placeholder="Min">     
+                <input class="form-control" type="number" min="0" value="10000" name="filterStock" [(ngModel)]="filterMenor" placeholder="Max">
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Stock: </span>
+                </div>
+                <input class="form-control" name="filterStock" [(ngModel)]="filterStock"
+                        type="number" min="0" value="0" placeholder="Minimo">    
+            </div>
+        </div>
     </div>
+    <div class="row">
+        <div  *ngFor="let producto of productos | filter:filterStock | preciomenor:filterMenor | preciomayor:filterMayor" class="col-sm-6 col-lg-4 col-xl-3">
+        <app-card 
+                [item]="producto"
+                [carrito]="carrito"
+                [txt_stock]="txt_stock"
+                [is_carrito]="false"></app-card>
+                
+            </div>
+        </div>
 </div>
+        

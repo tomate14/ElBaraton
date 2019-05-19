@@ -17,9 +17,16 @@ export class RouteviewComponent implements OnInit {
   private carrito : ItemCarrito[];
   private id:string;
   private txt_stock:string="Stock:";
+  private filterStock : number;
+  private filterMenor : number;
+  private filterMayor : number;
+  private ordenarPor  : any[] = [];
 
   constructor(private _route: ActivatedRoute, private service: ProductsService, private service_carrito:CarritoService) { 
-
+    this.filterStock = 0;
+    this.filterMenor = 30000;
+    this.filterMayor = 0;
+    this.ordenarPor = [{nombre : "Precio Menor"},{nombre : "Precio Mayor"},{nombre : "Cantidad Menor"},{nombre : "Cantidad Mayor"},{nombre : "Disponibles"} ];
     /* Obtengo el identificador del menu seleccionado */
     this.id = this._route.snapshot.paramMap.get('id');
 
@@ -46,6 +53,31 @@ export class RouteviewComponent implements OnInit {
      
     });
 
+  }
+
+  onFiltroStockChange(numero : number){
+    console.log("Numero en onFiltroStock: "+ numero);
+    if(numero == undefined){
+        this.filterStock = 0;  
+    }
+    this.filterStock = numero;
+  }
+
+  cambiarOrden(orden : string){
+    switch (orden) {
+      case "Precio Menor":
+         this.productos.sort((a,b)=> parseInt(a.price.replace("$","").replace(",","")) - parseInt(b.price.replace("$","").replace(",","")) )
+        break;
+      case "Precio Mayor":
+          this.productos.sort((a,b)=> parseInt(b.price.replace("$","").replace(",","")) - parseInt(a.price.replace("$","").replace(",","")) )
+      case "Cantidad Menor":
+          this.productos.sort((a,b)=> a.quantity - b.quantity);
+      case "Cantidad Mayor":
+          this.productos.sort((a,b)=> b.quantity - a.quantity);
+        break;
+      default:
+          this.productos.sort((a,b) =>  (a.available === b.available)? 0 : a.available ? -1 : 1);
+    }
   }
 
 

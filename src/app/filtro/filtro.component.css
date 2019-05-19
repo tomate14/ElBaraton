@@ -1,22 +1,3 @@
-.text-bold {
-    font-weight: 700;
-}
-
-.meta {
-    color: rgba(0, 0, 0, .4);
-}
-
-.meta a {
-    text-decoration: none;
-    color: rgba(0, 0, 0, .4);
-}
-
-.meta a:hover {
-    color: rgba(0, 0, 0, .87);
-}
-
-/*Aca va lo del filtro*/
-
 .ordenar {
     padding-top: 10px;
     padding-bottom: 10px;
