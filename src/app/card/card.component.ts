@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, DoCheck } from '@angular/core';
 import { Producto } from '../clases/Producto';
 import { ItemCarrito } from '../clases/ItemCarrito';
 import { CarritoService } from 'src/services/carrito.service';
@@ -9,6 +9,7 @@ import { CarritoService } from 'src/services/carrito.service';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
+ 
 
   @Input() is_carrito: string;
   @Input() item: Producto;
@@ -76,4 +77,5 @@ export class CardComponent implements OnInit {
       this.eliminarClicked.emit(true);  
       //Falta re renderizar el componente
   }
+
 }

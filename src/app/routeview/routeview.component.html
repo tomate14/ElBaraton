@@ -32,7 +32,7 @@
     <div class="row">
         <div  *ngFor="let producto of productos | filter:filterStock | preciomenor:filterMenor | preciomayor:filterMayor" class="col-sm-6 col-lg-4 col-xl-3">
         <app-card 
-                [item]="producto"
+                [(item)]="producto"
                 [carrito]="carrito"
                 [txt_stock]="txt_stock"
                 [is_carrito]="false"></app-card>

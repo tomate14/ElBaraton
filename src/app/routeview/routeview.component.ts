@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, DoCheck } from '@angular/core';
 import { Producto } from '../clases/Producto';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from 'src/services/products.service';
@@ -12,7 +12,10 @@ import { CarritoService } from 'src/services/carrito.service';
   styleUrls: ['./routeview.component.css']
 })
 
-export class RouteviewComponent implements OnInit {
+export class RouteviewComponent implements OnInit,DoCheck {
+  ngDoCheck(): void {
+      
+  }
   private productos : Producto[];
   private carrito : ItemCarrito[];
   private id:string;
@@ -21,11 +24,13 @@ export class RouteviewComponent implements OnInit {
   private filterMenor : number;
   private filterMayor : number;
   private ordenarPor  : any[] = [];
+  private filterOrden : string;
 
   constructor(private _route: ActivatedRoute, private service: ProductsService, private service_carrito:CarritoService) { 
     this.filterStock = 0;
     this.filterMenor = 30000;
     this.filterMayor = 0;
+    this.filterOrden = "";
     this.ordenarPor = [{nombre : "Precio Menor"},{nombre : "Precio Mayor"},{nombre : "Cantidad Menor"},{nombre : "Cantidad Mayor"},{nombre : "Disponibles"} ];
     /* Obtengo el identificador del menu seleccionado */
     this.id = this._route.snapshot.paramMap.get('id');
@@ -54,7 +59,8 @@ export class RouteviewComponent implements OnInit {
     });
 
   }
-
+  
+  
   onFiltroStockChange(numero : number){
     console.log("Numero en onFiltroStock: "+ numero);
     if(numero == undefined){
@@ -64,20 +70,19 @@ export class RouteviewComponent implements OnInit {
   }
 
   cambiarOrden(orden : string){
+    this.filterOrden = orden;   
     switch (orden) {
       case "Precio Menor":
-         this.productos.sort((a,b)=> parseInt(a.price.replace("$","").replace(",","")) - parseInt(b.price.replace("$","").replace(",","")) )
-        break;
+        this.productos.sort((a,b)=> parseInt(a.price.replace("$","").replace(",","")) - parseInt(b.price.replace("$","").replace(",","")) )
       case "Precio Mayor":
-          this.productos.sort((a,b)=> parseInt(b.price.replace("$","").replace(",","")) - parseInt(a.price.replace("$","").replace(",","")) )
+        this.productos.sort((a,b)=> parseInt(b.price.replace("$","").replace(",","")) - parseInt(a.price.replace("$","").replace(",","")) )
       case "Cantidad Menor":
-          this.productos.sort((a,b)=> a.quantity - b.quantity);
+        this.productos.sort((a,b)=> a.quantity - b.quantity);
       case "Cantidad Mayor":
-          this.productos.sort((a,b)=> b.quantity - a.quantity);
-        break;
+        this.productos.sort((a,b)=> b.quantity - a.quantity);
       default:
-          this.productos.sort((a,b) =>  (a.available === b.available)? 0 : a.available ? -1 : 1);
-    }
+        this.productos.sort((a,b) =>  (a.available === b.available)? 0 : a.available ? -1 : 1);
+    } 
   }
 
 
