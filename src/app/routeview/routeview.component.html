@@ -1,15 +1,18 @@
 <div class="container-fluid">
+    <app-filtro (OnFiltroChange)="filtrarProductos($event)"
+                (OnOrdenChange)="ordenarProductos($event)"></app-filtro>
     <div class="row">
-        <app-filtro></app-filtro>
-    </div>
-    <div class="row">
-            <div *ngFor="let producto of productos" class="col-sm-6 col-lg-4 col-xl-3">
-                <app-card 
-                        [item]="producto"
-                        [carrito]="carrito"
-                        [txt_stock]="txt_stock"
-                        [is_carrito]="false"></app-card>
-                        
+        <div  *ngFor="let producto of productos" class="col-sm-6 col-lg-4 col-xl-3">
+        <app-card 
+            [(item)]="producto"                
+            [txt_stock]="txt_stock"
+            [carrito]="carrito"
+            [is_carrito]="false"></app-card>
+            
+            <!--app-card 
+                [(item)]="producto"
+                [txt_stock]="txt_stock"
+                [is_carrito]="false"></app-card-->
             </div>
-    </div>
+        </div>
 </div>

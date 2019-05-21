@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -15,6 +17,7 @@ import { ProductsService } from '../services/products.service';
 import { CarritoService } from 'src/services/carrito.service';
 import { CardComponent } from './card/card.component';
 import { FiltroComponent } from './filtro/filtro.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { FiltroComponent } from './filtro/filtro.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    FormsModule
   ],  
   providers: [
     CategoriaService,
