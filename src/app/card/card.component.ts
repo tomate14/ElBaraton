@@ -18,7 +18,7 @@ export class CardComponent implements OnInit {
   @Output() eliminarClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private service_carrito:CarritoService) { 
-    console.log(this.txt_stock);
+    
   }
 
   ngOnInit() {

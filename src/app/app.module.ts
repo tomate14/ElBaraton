@@ -17,11 +17,7 @@ import { ProductsService } from '../services/products.service';
 import { CarritoService } from 'src/services/carrito.service';
 import { CardComponent } from './card/card.component';
 import { FiltroComponent } from './filtro/filtro.component';
-import { FilterPipe } from './pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
-import { PreciomenorPipe } from './pipes/preciomenor.pipe';
-import { PreciomayorPipe } from './pipes/preciomayor.pipe';
-import { OrdenproductoPipe } from './pipes/ordenproducto.pipe'
 
 @NgModule({
   declarations: [
@@ -33,11 +29,7 @@ import { OrdenproductoPipe } from './pipes/ordenproducto.pipe'
     FooterComponent,
     RouteviewComponent,
     CardComponent,
-    FiltroComponent,
-    FilterPipe,
-    PreciomenorPipe,
-    PreciomayorPipe,
-    OrdenproductoPipe
+    FiltroComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +43,6 @@ import { OrdenproductoPipe } from './pipes/ordenproducto.pipe'
     ProductsService,
     CarritoService
   ],
-  bootstrap: [AppComponent],
-  exports: [PreciomenorPipe, PreciomayorPipe, OrdenproductoPipe]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

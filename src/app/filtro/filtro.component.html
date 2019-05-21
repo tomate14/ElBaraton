@@ -3,11 +3,11 @@
       <div ngbDropdown class="d-inline-block">
         <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Ordenar</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button ngbDropdownItem>Precio Menor</button>
-          <button ngbDropdownItem>Precio Mayor</button>
-          <button ngbDropdownItem>Cantidad Menor</button>
-          <button ngbDropdownItem>Cantidad Mayor</button>
-          <button ngbDropdownItem>Disponibilible</button>
+          <button ngbDropdownItem (click)="modificarOrdenProductos('Precio Menor')">Precio Menor</button>
+          <button ngbDropdownItem (click)="modificarOrdenProductos('Precio Mayor')">Precio Mayor</button>
+          <button ngbDropdownItem (click)="modificarOrdenProductos('Cantidad Menor')">Cantidad Menor</button>
+          <button ngbDropdownItem (click)="modificarOrdenProductos('Cantidad Mayor')">Cantidad Mayor</button>
+          <button ngbDropdownItem (click)="modificarOrdenProductos('Disponibilible')">Disponibilible</button>
         </div>
       </div>
     </div>
@@ -16,8 +16,8 @@
           <div class="input-group-prepend">
               <span class="input-group-text">Precio: </span>
           </div>
-          <input class="form-control" type="number" min="0" placeholder="Min">     
-          <input class="form-control" type="number" min="0" placeholder="Max">
+          <input class="form-control" type="number" min="0" placeholder="Min" [(ngModel)]="_precioMinimo">     
+          <input class="form-control" type="number" min="0" placeholder="Max" [(ngModel)]="_precioMaximo">
         </div>
     </div>
     <div class="col-sm-3">
@@ -26,11 +26,11 @@
               <span class="input-group-text">Stock: </span>
           </div>
           <input class="form-control" (change)="notificarFiltroStock($event)"
-                 type="number" min="0" value="0" placeholder="Minimo">    
+                 type="number" min="0" value="0" placeholder="Minimo" [(ngModel)]="_stock">    
         </div>
     </div>
     <div class="col-sm-3 btnBuscar">
-        <button class="btn btn-dark">Buscar</button>
+        <button class="btn btn-dark" (click)="notificarFiltroStock($event)">Filtrar</button>
     </div>
 </div>
   
