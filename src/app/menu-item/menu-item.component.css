@@ -1,8 +1,7 @@
 .navbar-nav {
     display: inline-block;
 }
-li.list-group-item{
-    list-style:none;
+li.nav-item{
     font-family: 'Baloo Bhai', cursive;
     color: azure;
     font-size: 1em;

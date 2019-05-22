@@ -1,0 +1,6 @@
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let categoria of child">
+        <a href="">{{categoria.name}}</a>
+        <app-menu-item  *ngIf="categoria.hasOwnProperty('sublevels')" [child]="categoria.sublevels"></app-menu-item> 
+    </li>   
+</ul>
