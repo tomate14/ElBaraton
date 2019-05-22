@@ -12,16 +12,21 @@ import { Producto } from '../clases/Producto';
 })
 export class MenuComponent implements OnInit {
 
-  isCollapsed = null;
+  private menuColapsado = null;
+  private itemColapsado = null;
+  private estadosPrimerasSubcategorias:Object[];
   private categorias : Categoria[];
-  private id : number;
 
   constructor(private service: CategoriaService) {
-    this.isCollapsed = false;
-    this.id = 8;
+    this.menuColapsado = false;
+    this.itemColapsado = false;
+    this.estadosPrimerasSubcategorias = [];
     this.service.getCategorias().subscribe(data => {
       if(data["categories"] != null && data["categories"] != []){
         this.categorias = data["categories"];
+      }
+      for(let index = 0; index < this.categorias.length; index++){
+        this.estadosPrimerasSubcategorias.push({id: this.categorias[index].id,mostrar:false});
       }
     });
   }
@@ -29,8 +34,21 @@ export class MenuComponent implements OnInit {
   ngOnInit() {    
   }
   
+  visualizarSubcategoria(id:string){
+    let estadoCategoria:Object = this.estadosPrimerasSubcategorias.find((item)=> item["id"] == id);
+    estadoCategoria["mostrar"] = !estadoCategoria["mostrar"];
+  }
+
+  getEstadoSubcategoria(id:number){
+    return this.estadosPrimerasSubcategorias.find((item)=> item["id"] == id)["mostrar"];
+
+  }
+
   toggleNavbar(){
-    this.isCollapsed = !this.isCollapsed;
+    this.menuColapsado = !this.menuColapsado;
+  }
+  Colapsar(){
+    this.itemColapsado = !this.itemColapsado;
   }
 
 }

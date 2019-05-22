@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { Producto } from '../clases/Producto';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from 'src/services/products.service';
@@ -11,31 +11,30 @@ import { CarritoService } from 'src/services/carrito.service';
   styleUrls: ['./routeview.component.css']
 })
 
-export class RouteviewComponent implements OnInit {
-  
+export class RouteviewComponent implements OnInit, DoCheck{
   private productos : Producto[];
   private carrito : ItemCarrito[];
   private id:string;
   private txt_stock:string="Stock:";
   private ordenarPor  : any[] = [];
   private filterOrden : string;
-
+  
   constructor(private _route: ActivatedRoute, private service: ProductsService, private service_carrito: CarritoService) { 
-
+    
     this.filterOrden = "";
     
     /* Obtengo el identificador del menu seleccionado */
-    this.id = this._route.snapshot.paramMap.get('id');
-    /*Obtenemos los productos del servicio*/
-    this.carrito = this.service_carrito.getCarrito();
+  }
 
-    if(this.carrito == null){
-        this.carrito = [];
+  ngDoCheck(): void {
+    let idProducto = this._route.snapshot.paramMap.get('id');
+    if(this.id != idProducto){
+      this.id = idProducto;
+      this.buscarProductos();
     }
   }
   
-  ngOnInit() {
-    
+  buscarProductos(){
     this.service.getProductos().subscribe(data => {
   
       /*Si trae datos, los filtro por el identificador del submenu que quiero buscar*/
@@ -47,6 +46,19 @@ export class RouteviewComponent implements OnInit {
       this.service.setProductos(this.productos);
       
     });
+  }
+
+  ngOnInit() {
+    
+    this.id = this._route.snapshot.paramMap.get('id');
+    /*Obtenemos los productos del servicio*/
+    this.carrito = this.service_carrito.getCarrito();
+  
+    if(this.carrito == null){
+        this.carrito = [];
+    }
+
+    this.buscarProductos();
 
   }
   

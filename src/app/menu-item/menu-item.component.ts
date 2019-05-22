@@ -8,12 +8,20 @@ import { Categoria } from '../clases/Categoria';
 })
 export class MenuItemComponent implements OnInit {
 
-  @Input() child : Categoria;
+  @Input() hijos : Categoria;
+  @Input() itemColapsado:boolean;
+  private hijoColapsado:boolean;
+
   private aux :any;
 
-  constructor() {   }
+  constructor() {  
+     this.hijoColapsado = false;
+   }
 
   ngOnInit() {
   }
 
+  Colapsar(){
+    this.hijoColapsado = !this.hijoColapsado;
+  }
 }
