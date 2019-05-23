@@ -5,20 +5,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { MenuComponent } from './menu/menu.component';
+import { HeaderComponent } from './componentesgenerales/header/header.component';
+import { MenuComponent } from './menues/menu/menu.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CarritoComponent } from './carrito/carrito.component';
-import { ContentComponent } from './content/content.component';
-import { FooterComponent } from './footer/footer.component';
-import { RouteviewComponent } from './routeview/routeview.component';
+import { CarritoComponent } from './componentesrouteo/carrito/carrito.component';
+import { ContentComponent } from './componentesgenerales/content/content.component';
+import { RouteviewComponent } from './componentesrouteo/routeview/routeview.component';
 import { CategoriaService} from '../services/categoria.service';
 import { ProductsService } from '../services/products.service';
 import { CarritoService } from 'src/services/carrito.service';
 import { CardComponent } from './card/card.component';
 import { FiltroComponent } from './filtro/filtro.component';
 import { FormsModule } from '@angular/forms';
-import { MenuItemComponent } from './menu-item/menu-item.component';
+import { MenuItemComponent } from './menues/menu-item/menu-item.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,6 @@ import { MenuItemComponent } from './menu-item/menu-item.component';
     MenuComponent,
     CarritoComponent,
     ContentComponent,
-    FooterComponent,
     RouteviewComponent,
     CardComponent,
     FiltroComponent,

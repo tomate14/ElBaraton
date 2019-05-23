@@ -14,10 +14,10 @@
                     <div class="collapse" [ngClass]="{ 'show':itemColapsado }" >
                         <ul class="list-group" *ngFor="let categoria of categorias; index as i">
                             <li class="list-group-item">
-                                    <a data-toggle="collapse" routerLink="/listaProductos/{{categoria.id}}">
+                                    <a data-toggle="collapse" routerLink="/listaProductos/{{categoria.id}}/null">
                                         <span class="mr-3" (click)="visualizarSubcategoria(categoria.id)"></span>{{categoria.name}}</a>
                                     <app-menu-item 
-                                        [itemColapsado]="getEstadoSubcategoria(categoria.id)"
+                                        [itemColapsado]="getEstadoSubcategoria(categoria.id)"                                        
                                         [hijos]="categoria.sublevels"
                                         ></app-menu-item>  
                             </li>
@@ -29,7 +29,5 @@
                 </li>
             </ul>
         </div> 
-        <div *ngFor="let item of productos">
-            <p style="color: red">{{item.name}}+</p>
-        </div>      
+  
 </nav>

@@ -1,0 +1,20 @@
+<div class="collapse" [ngClass]="{ 'show':itemColapsado }" >
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let categoria of hijos">
+            <a id="itemSubmenu" data-toggle="collapse" routerLink="/listaProductos/{{categoria.id}}/null" >{{categoria.name}}</a>
+            <span class="mr-3" (click)="Colapsar(categoria.id)"></span>
+            <div class="collapse" [ngClass]="{ 'show': hijoColapsado }" >
+                <app-menu-item  *ngIf="categoria.hasOwnProperty('sublevels')" 
+                [hijos]="categoria.sublevels"
+                [itemColapsado]="hijoColapsado"></app-menu-item> 
+            </div>
+            <input id="inputBuscar"
+                *ngIf="!categoria.hasOwnProperty('sublevels')"
+                [ngModel]="textoABuscar"
+                (ngModelChange)="cambiarFiltroName($event,categoria)"
+                class="form-control"  
+                type="text" placeholder="Buscar Producto"/>
+        
+        </li>   
+    </ul>
+</div>

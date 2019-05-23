@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { RouteviewComponent } from './routeview/routeview.component';
-import { CarritoComponent } from './carrito/carrito.component';
+import { RouteviewComponent } from './componentesrouteo/routeview/routeview.component';
+import { CarritoComponent } from './componentesrouteo/carrito/carrito.component';
 
 const routes: Routes = [
     {
-        path: 'listaProductos/:id',
+        path: 'listaProductos/:id/:filtrar',
         component: RouteviewComponent
     },
     {
