@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Categoria } from '../clases/Categoria';
-import { ProductsService } from 'src/services/products.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { Categoria } from '../../clases/Categoria';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-menu-item',
@@ -16,9 +16,9 @@ export class MenuItemComponent implements OnInit {
 
   private aux :any;
 
-  constructor(private productos_service:ProductsService) {  
+  constructor( private route: ActivatedRoute,  private router: Router) {  
      this.hijoColapsado = false;
-     this.textoABuscar = "";
+     this.textoABuscar = "null";
    }
 
   ngOnInit() {
@@ -26,6 +26,12 @@ export class MenuItemComponent implements OnInit {
 
   Colapsar(){
     this.hijoColapsado = !this.hijoColapsado;
+  }
+
+  cambiarFiltroName(filtro:string, categoria:Categoria){
+    this.textoABuscar = filtro;
+    this.router.navigate(['listaProductos', categoria.id, filtro]);
+
   }
 
 
