@@ -22,6 +22,9 @@ export class MenuItemComponent implements OnInit {
    }
 
   ngOnInit() {
+    if(this.textoABuscar == "null"){
+      this.textoABuscar = "";
+    }
   }
 
   Colapsar(){

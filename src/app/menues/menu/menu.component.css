@@ -6,6 +6,15 @@
 }
 
 
+a{
+  color: black;
+}
+
+a:not([href]):not([tabindex]) {
+  color: black;
+  text-decoration: none;
+}
+
 ul.list-group{
     width: 100%;
 }
@@ -13,15 +22,25 @@ li.list-group-item{
     list-style:none;
     font-family: 'Open Sans Condensed';
     color: azure;
-    font-size: 1em;
 }
-a{
+
+#itemMenuPrincipal{
   color: black;
+  animation: fadein 2s;  
+  font-size: 2em;
 }
-a:not([href]):not([tabindex]) {
-  color: black;
-  text-decoration: none;
+
+
+@keyframes fadein {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:5;
+  }
 }
+
+
 
 
 .list-group-item span {
@@ -37,4 +56,6 @@ a:not([href]):not([tabindex]) {
 }
 .list-group-item {
   border: 0px;
+  background-color: transparent;
 }
+

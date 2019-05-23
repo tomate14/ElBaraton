@@ -1,8 +1,10 @@
 <div class="collapse" [ngClass]="{ 'show':itemColapsado }" >
     <ul class="list-group">
         <li class="list-group-item" *ngFor="let categoria of hijos">
-            <a id="itemSubmenu" data-toggle="collapse" routerLink="/listaProductos/{{categoria.id}}/null" >{{categoria.name}}</a>
-            <span class="mr-3" (click)="Colapsar(categoria.id)"></span>
+            <div (click)="Colapsar(categoria.id)">
+                <a id="itemSubmenu" data-toggle="collapse" routerLink="/listaProductos/{{categoria.id}}/null" >{{categoria.name}}</a>
+                <span class="mr-3" ></span>
+            </div>
             <div class="collapse" [ngClass]="{ 'show': hijoColapsado }" >
                 <app-menu-item  *ngIf="categoria.hasOwnProperty('sublevels')" 
                 [hijos]="categoria.sublevels"

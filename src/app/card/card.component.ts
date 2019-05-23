@@ -29,7 +29,7 @@ export class CardComponent implements OnInit {
     return this.carrito.find(item => item.id == this.item.id);
   }
 
-  agregarCarrito($event:any){
+  agregarCarrito(){
 
     /*Busco el item en el carrito*/ 
     let item_carrito = null;
@@ -46,7 +46,7 @@ export class CardComponent implements OnInit {
     this.service_carrito.guardarCarrito(this.carrito);
  }
 
- incrementar($event:any){
+ incrementar(){
   /*Busco el item en el carrito*/ 
   let item_carrito = null;
    
@@ -58,7 +58,7 @@ export class CardComponent implements OnInit {
 
  }
 
- decrementar($event:any){
+ decrementar(){
   /*Busco el item en el carrito*/ 
     let item_carrito = null;
     
@@ -69,7 +69,8 @@ export class CardComponent implements OnInit {
     /* Guardo el carrito actualizado */
     this.service_carrito.guardarCarrito(this.carrito);
   }
-  eliminar($event:any,item){
+  
+  eliminar(item:Producto){
       this.carrito = this.carrito.filter(function(producto){ 
         return producto.id != item.id
       });
