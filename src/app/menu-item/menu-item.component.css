@@ -1,24 +1,15 @@
-.navbar-nav {
-    display: inline-block;
-}
-li.nav-item{
-    font-family: 'Baloo Bhai', cursive;
-    color: azure;
-    font-size: 1em;
-}
-
 .list-group-item {
     border: 0px;
 }
 
 a{
     color: black;
-  }
+}
+
 a:not([href]):not([tabindex]) {
     color: black;
     text-decoration: none;
 }
-  
 
 .list-group-item span {
     cursor: pointer;
@@ -30,4 +21,11 @@ a:not([href]):not([tabindex]) {
     display: inline;
     padding: 3px;
     position: absolute;
+}
+
+
+#inputBuscar{
+    width: 100%;
+    font-family: auto;
+    font-size: small;
 }

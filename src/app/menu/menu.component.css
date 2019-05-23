@@ -1,12 +1,17 @@
 .navbar-nav {
     display: inline-block;
 }
+.navbar-toggler{
+  background: black;
+}
+
+
 ul.list-group{
     width: 100%;
 }
 li.list-group-item{
     list-style:none;
-    font-family: 'Baloo Bhai', cursive;
+    font-family: 'Open Sans Condensed';
     color: azure;
     font-size: 1em;
 }
@@ -32,8 +37,4 @@ a:not([href]):not([tabindex]) {
 }
 .list-group-item {
   border: 0px;
-}
-.list-group-item .collapsed span {
-  transform: rotate(-140deg);
-  margin-top: 10px;
 }

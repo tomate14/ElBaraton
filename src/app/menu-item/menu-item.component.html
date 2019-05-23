@@ -8,7 +8,7 @@
                 [hijos]="categoria.sublevels"
                 [itemColapsado]="hijoColapsado"></app-menu-item> 
             </div>
-            <input *ngIf="!categoria.hasOwnProperty('sublevels')" type="text" placeholder="Buscar Producto"/>
+            <input id="inputBuscar" class="form-control" *ngIf="!categoria.hasOwnProperty('sublevels')" type="text" placeholder="Buscar Producto"/>
         </li>   
     </ul>
 </div>

@@ -2,9 +2,9 @@
 
 
 h1#header{
-    font-family: 'Baloo Bhai', cursive;
+    font-family: 'Open Sans Condensed';
+    background: burlywood;
     text-align: center;
-    color: darkred;
+    color: black;
     font-size: 5em;
-    margin-bottom: 30px;
 }
