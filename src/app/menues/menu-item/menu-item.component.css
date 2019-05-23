@@ -22,7 +22,11 @@ a:not([href]):not([tabindex]) {
     padding: 3px;
     position: absolute;
 }
-
+#itemSubmenu{
+    color: black;
+    animation: fadein 2s;  
+     font-size: 2em;
+}
 
 #inputBuscar{
     width: 100%;
