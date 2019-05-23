@@ -12,61 +12,43 @@ import { Producto } from '../clases/Producto';
 })
 export class MenuComponent implements OnInit {
 
-  isCollapsed = null;
+  private menuColapsado = null;
+  private itemColapsado = null;
+  private estadosPrimerasSubcategorias:Object[];
   private categorias : Categoria[];
-  private id : number;
-  private _menuHtml : string[];
-  private _itemMenu:string;
 
   constructor(private service: CategoriaService) {
-    //console.log("Construyendo el componente");
-    this.id = 8;
-    this._menuHtml = [];
+    this.menuColapsado = false;
+    this.itemColapsado = false;
+    this.estadosPrimerasSubcategorias = [];
     this.service.getCategorias().subscribe(data => {
       if(data["categories"] != null && data["categories"] != []){
         this.categorias = data["categories"];
-        /*let value = 0;
-        this._itemMenu = "";
-        for(let indexCategoria = 0; indexCategoria < data["categories"].length; indexCategoria++){
-          this.generarMenu(data["categories"],0, value);
-          this._menuHtml.push(this._itemMenu);
-          this._itemMenu = "";
-        } 
-        console.log(this._menuHtml);*/
+      }
+      for(let index = 0; index < this.categorias.length; index++){
+        this.estadosPrimerasSubcategorias.push({id: this.categorias[index].id,mostrar:false});
       }
     });
   }
-
-  generarMenu(item : Categoria[], index:number, value:number){
-      let tieneSubcategorias = item[index].hasOwnProperty("sublevels");
-      console.log(item[index]);
-      if(!tieneSubcategorias){
-        this._itemMenu = this._itemMenu + 
-        ' <li class="nav-item"> '+
-          ' <a class="nav-link" routerLink="/listaProductos/'+item[index].id+'" id="menu-description">'+item[index].name +
-            ' <input type="text" placeholder="Buscar" /> '+
-          ' </a> '+
-        '</li>';
-      }else{
-        this._itemMenu = this._itemMenu + ' <ul class="navbar-nav flex-column"> '+
-                                              '<li class="nav-item">'+
-                                              '<a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" data-target="#submenu1" >'+item[index].name+'</a>'+
-                                              '<div class="collapse" id="submenu1" aria-expanded="false">';                                                  
-        if(tieneSubcategorias){
-          for(let i = 0; i < item[index].sublevels.length ; i++ ){
-              this.generarMenu(item[index].sublevels, i,value++);
-            }
-          this._itemMenu = this._itemMenu +' </div> '+' </li> '+ ' </ul> ';
-        }
-      }
-  }
-
+  
   ngOnInit() {    
-    this.isCollapsed = false;
   }
   
+  visualizarSubcategoria(id:string){
+    let estadoCategoria:Object = this.estadosPrimerasSubcategorias.find((item)=> item["id"] == id);
+    estadoCategoria["mostrar"] = !estadoCategoria["mostrar"];
+  }
+
+  getEstadoSubcategoria(id:number){
+    return this.estadosPrimerasSubcategorias.find((item)=> item["id"] == id)["mostrar"];
+
+  }
+
   toggleNavbar(){
-    this.isCollapsed = !this.isCollapsed;
+    this.menuColapsado = !this.menuColapsado;
+  }
+  Colapsar(){
+    this.itemColapsado = !this.itemColapsado;
   }
 
 }

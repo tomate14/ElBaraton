@@ -18,6 +18,7 @@ import { CarritoService } from 'src/services/carrito.service';
 import { CardComponent } from './card/card.component';
 import { FiltroComponent } from './filtro/filtro.component';
 import { FormsModule } from '@angular/forms';
+import { MenuItemComponent } from './menu-item/menu-item.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     RouteviewComponent,
     CardComponent,
-    FiltroComponent
+    FiltroComponent,
+    MenuItemComponent
   ],
   imports: [
     BrowserModule,
