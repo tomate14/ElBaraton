@@ -36,4 +36,8 @@ export class CarritoComponent implements OnInit {
 
   }
 
+  onFinalizarCompra(){
+    this.service_carrito.limpiarCarrito();
+  }
+
 }
