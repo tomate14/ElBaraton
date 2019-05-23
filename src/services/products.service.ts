@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Producto } from '../app/clases/Producto';
 import { Observable } from 'rxjs';
+import { ParametrosFiltro } from 'src/app/clases/ParametrosFiltro';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,9 @@ export class ProductsService {
 
   //Url para obtener los productos
   public _urlProducto : string;
+
+  private nombreFiltrar : string;
+  prothis: any;
 
   //Constructor del servicio
   constructor(private http: HttpClient) { 
@@ -60,20 +64,26 @@ export class ProductsService {
   }
 
   //Filtramos los productos de la cache por los parametros que entran
-  filtrarProductos( filtro: any): Producto[] {
+  filtrarProductos( filtro: ParametrosFiltro): Producto[] {
     try {
-      return this.productos.filter(producto => {
+        return this.productos.filter(producto => {
         if(parseInt(producto.price.replace("$","").replace(",","")) >= filtro.getPrecioMinimo()) {
           if(parseInt(producto.price.replace("$","").replace(",","")) <= filtro.getPrecioMaximo()) {          
             if(producto.quantity >= filtro.getStock()) {
-              return producto;
+                return producto;
+              }
             }
           }
-        }
-      });
+        });     
     } catch (error) {
       throw new Error("Error al filtrar los productos" + error.toString());
     }
+  }
+
+  setNombreFiltrar(nombre :string){
+    this.nombreFiltrar = nombre;
+    this.productos = this.productos.filter(producto => producto.name.search(nombre));
+    console.log(this.productos);
   }
 
   

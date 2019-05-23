@@ -10,7 +10,6 @@ import { MenuComponent } from './menu/menu.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CarritoComponent } from './carrito/carrito.component';
 import { ContentComponent } from './content/content.component';
-import { FooterComponent } from './footer/footer.component';
 import { RouteviewComponent } from './routeview/routeview.component';
 import { CategoriaService} from '../services/categoria.service';
 import { ProductsService } from '../services/products.service';
@@ -27,7 +26,6 @@ import { MenuItemComponent } from './menu-item/menu-item.component';
     MenuComponent,
     CarritoComponent,
     ContentComponent,
-    FooterComponent,
     RouteviewComponent,
     CardComponent,
     FiltroComponent,

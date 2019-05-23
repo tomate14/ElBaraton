@@ -17,7 +17,7 @@
                                     <a data-toggle="collapse" routerLink="/listaProductos/{{categoria.id}}">
                                         <span class="mr-3" (click)="visualizarSubcategoria(categoria.id)"></span>{{categoria.name}}</a>
                                     <app-menu-item 
-                                        [itemColapsado]="getEstadoSubcategoria(categoria.id)"
+                                        [itemColapsado]="getEstadoSubcategoria(categoria.id)"                                        
                                         [hijos]="categoria.sublevels"
                                         ></app-menu-item>  
                             </li>

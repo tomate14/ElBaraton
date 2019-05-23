@@ -9,6 +9,7 @@ export class ParametrosFiltro{
         this.stock        = _stock;
     }
 
+
     public getStock():number{
         return this.stock;
     }
@@ -19,5 +20,6 @@ export class ParametrosFiltro{
     public getPrecioMaximo():number{
         return this.precioMaximo;
     }
+
 
 }
