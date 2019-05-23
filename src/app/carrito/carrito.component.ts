@@ -11,19 +11,20 @@ export class CarritoComponent implements OnInit {
 
   private carrito : Producto[];
   private txt_stock:string = "Cantidad:";
-  //@ViewChild(ChildComponent) viewChild: ChildComponent;
+  private carritoNoVacio:boolean;
 
   constructor(private service_carrito:CarritoService) { 
-
+    this.carritoNoVacio = null;
     
   }
   
   ngOnInit() {
     /* Traigo el carrito de compras */
     this.carrito = this.service_carrito.getCarrito();
-  
-    if(this.carrito == null){
-        this.carrito = [];
+    this.carritoNoVacio = true;
+    if(this.carrito == null || this.carrito.length == 0){
+      this.carritoNoVacio = false;
+      this.carrito = [];
     }
 
   }
@@ -32,12 +33,17 @@ export class CarritoComponent implements OnInit {
   onEliminarClicked(eliminar : boolean){
     if(eliminar){
       this.carrito = this.service_carrito.getCarrito();
+      if(this.carrito == null || this.carrito.length == 0){
+        this.carritoNoVacio = false;
+      }
     }
 
   }
 
   onFinalizarCompra(){
     this.service_carrito.limpiarCarrito();
+    this.carrito = this.service_carrito.getCarrito();
+    this.carritoNoVacio = false;
   }
 
 }

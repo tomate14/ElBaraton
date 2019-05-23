@@ -2,6 +2,11 @@
     border: 0px;
 }
 
+li.list-group-item{
+    list-style:none;
+    font-family: 'Open Sans Condensed';
+    color: azure;
+}
 a{
     color: black;
 }

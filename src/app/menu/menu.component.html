@@ -9,7 +9,7 @@
             <ul class="list-group">
                 <li class="list-group-item">
                     <a data-toggle="collapse" (click)="Colapsar()">
-                        <span class="mr-3"></span> Productos
+                        <span id="menuPrincipal"class="mr-3"></span> Productos
                     </a>
                     <div class="collapse" [ngClass]="{ 'show':itemColapsado }" >
                         <ul class="list-group" *ngFor="let categoria of categorias; index as i">
