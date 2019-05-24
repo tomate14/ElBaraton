@@ -1,7 +1,28 @@
 h1#header{
-    font-family: 'Permanent Marker', cursive;
-    background: burlywood;
+    height: auto;
+    font-family: 'Bungee', cursive;
+    background: white;
     text-align: center;
-    color: black;
+    color:  #6dbccd; 
     font-size: 5em;
+    margin-bottom: 0px;
+    border-color: black;    
+    text-shadow: 0px 3px 0px #242323,
+                 0px 14px 10px rgba(0,0,0,0.15),
+                 0px 24px 2px rgba(0,0,0,0.1),
+                 0px 34px 30px rgba(0,0,0,0.1);
+    animation-duration: 2s;
+    animation-name: slidein;
 }
+
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }

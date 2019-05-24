@@ -1,13 +1,12 @@
 .list-group-item {
     border: 0px;
+    background-color: transparent;
 }
 
-a{
-    color: black;
-}
-
+a,li.list-group-item, #itemMenuPrincipal,  a:not([href]):not([tabindex]){
+    color: white;
+  }
 a:not([href]):not([tabindex]) {
-    color: black;
     text-decoration: none;
 }
 
@@ -23,9 +22,9 @@ a:not([href]):not([tabindex]) {
     position: absolute;
 }
 #itemSubmenu{
-    color: black;
+    color: white;
     animation: fadein 2s;  
-     font-size: 2em;
+     font-size: 1.5em;
 }
 
 #inputBuscar{

@@ -18,6 +18,7 @@ import { CardComponent } from './card/card.component';
 import { FiltroComponent } from './filtro/filtro.component';
 import { FormsModule } from '@angular/forms';
 import { MenuItemComponent } from './menues/menu-item/menu-item.component';
+import { MenuuserComponent } from './menues/menuuser/menuuser.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MenuItemComponent } from './menues/menu-item/menu-item.component';
     RouteviewComponent,
     CardComponent,
     FiltroComponent,
-    MenuItemComponent
+    MenuItemComponent,
+    MenuuserComponent
   ],
   imports: [
     BrowserModule,
