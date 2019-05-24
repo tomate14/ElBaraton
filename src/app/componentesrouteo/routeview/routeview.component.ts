@@ -67,14 +67,6 @@ export class RouteviewComponent implements OnInit, DoCheck{
     
     this.id = this._route.snapshot.paramMap.get('id');
     this.nameFilter = this._route.snapshot.paramMap.get('filtrar');
-
-    /*Obtenemos los productos del servicio*/
-    /*this.carrito = this.service_carrito.getCarrito();
-  
-    if(this.carrito == null){
-        this.carrito = [];
-    }*/
-
     this.buscarProductos();
 
   }
@@ -88,7 +80,6 @@ export class RouteviewComponent implements OnInit, DoCheck{
   
   ordenarProductos(orden : string){
     this.productos = this.service.ordenarProductos(this.productos,orden); 
-     console.log(this.productos);
   }
 
 

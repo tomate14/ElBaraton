@@ -12,7 +12,6 @@ export class FiltroComponent implements OnInit, DoCheck {
   private _precioMaximo:number;
   private _stock:number;
   private _ordenamientoProducto:string;
-  //private _ordenarPor : any[];
   @Output() OnFiltroChange: EventEmitter<ParametrosFiltro> = new EventEmitter<ParametrosFiltro>();
   @Output() OnOrdenChange: EventEmitter<string> = new EventEmitter<string>();
   
@@ -22,7 +21,6 @@ export class FiltroComponent implements OnInit, DoCheck {
     this._precioMinimo = 0;
     this._stock = 0;
     this._ordenamientoProducto = "";
-    //this._ordenarPor = [{nombre : "Precio Menor"},{nombre : "Precio Mayor"},{nombre : "Cantidad Menor"},{nombre : "Cantidad Mayor"},{nombre : "Disponibles"} ];
   }
 
   ngOnInit() {

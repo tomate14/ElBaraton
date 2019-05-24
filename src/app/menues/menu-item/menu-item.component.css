@@ -24,7 +24,7 @@ a:not([href]):not([tabindex]) {
 #itemSubmenu{
     color: white;
     animation: fadein 2s;  
-     font-size: 1.5em;
+    font-size: 1.1em;
 }
 
 #inputBuscar{

@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuuserComponent implements OnInit {
 
-  constructor() { }
+  private _nombre:string;
+  constructor() { 
+    this._nombre = "Maximiliano Roselli";
+  }
 
   ngOnInit() {
   }

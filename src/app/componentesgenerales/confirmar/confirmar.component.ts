@@ -13,9 +13,7 @@ export class ConfirmarComponent implements OnInit {
   @Input() btnOkText: string;
   @Input() btnCancelText: string;
 
-  constructor(private activeModal: NgbActiveModal) { 
-    console.log("");
-  }
+  constructor(private activeModal: NgbActiveModal) {   }
 
   ngOnInit() {
   }

@@ -13,13 +13,13 @@
         </ng-container>
         <ng-container *ngIf="is_carrito" class="card-footer container">
             <div class="row card-modificar">
-                <button class="col-sm-2 btn btn-dark btn-sm btnmodicantidad" (click)="decrementar()">-</button>
+                <button class="col-sm-2 col-3 btn btn-dark btn-sm btnmodicantidad" (click)="decrementar()">-</button>
                 
-                <input class="col-sm-4 inputcantidad" value={{item.quantity}} type="number"/>    
+                <input class="col-sm-4 col-3 inputcantidad" value={{item.quantity}} type="number"/>    
                 
-                <button class="col-sm-2 btn btn-dark btn-sm btnmodicantidad" (click)="incrementar()">+</button>
+                <button class="col-sm-2 col-3 btn btn-dark btn-sm btnmodicantidad" (click)="incrementar()">+</button>
 
-                <button type="button" class="remove col-sm-2 btn btn-danger btnmodicantidad" (click)="abrirConfirmacion(item)">
+                <button type="button" class="remove col-sm-2 col-2 btn btn-danger btnmodicantidad" (click)="abrirConfirmacion(item)">
                         <span aria-hidden="true">&times;</span>
                 </button>
 

@@ -8,8 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class CategoriaService {
 
-  constructor(private http: HttpClient) { }
+  public _categoria:Categoria[];
+  constructor(private http: HttpClient) { 
+    this._categoria = [];
+  }
 
+  //Obtengo las categorias para armar el menu
   getCategorias(): Observable<Categoria[]>{
     return this.http.get<Categoria[]>('../assets/categories.json');
   }

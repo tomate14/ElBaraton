@@ -22,6 +22,7 @@ import { MenuuserComponent } from './menues/menuuser/menuuser.component';
 import { ConfirmarComponent } from '../app/componentesgenerales/confirmar/confirmar.component';
 import { ConfirmarService } from 'src/services/confirmar.service';
 import { MensajeinicialComponent } from './mensajeinicial/mensajeinicial.component';
+import { MenuhojaComponent } from './menues/menuhoja/menuhoja.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { MensajeinicialComponent } from './mensajeinicial/mensajeinicial.compone
     MenuItemComponent,
     MenuuserComponent,
     ConfirmarComponent,
-    MensajeinicialComponent
+    MensajeinicialComponent,
+    MenuhojaComponent
   ],
   entryComponents: [ConfirmarComponent],
   imports: [

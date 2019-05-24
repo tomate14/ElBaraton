@@ -1,5 +1,6 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-white" id="contenedor-navbar">              
+<nav class="navbar navbar-expand-sm navbar-dark bg-white" id="contenedor-navbar">              
         <app-menuuser></app-menuuser>
+        <hr>
         <button class="navbar-toggler" type="button"
                 (click)="toggleNavbar()">
             <span class="navbar-toggler-icon"></span>
@@ -16,9 +17,9 @@
 
 
                     <div class="collapse" [ngClass]="{ 'show':itemColapsado }" >
-                        <ul class="list-group" *ngFor="let categoria of categorias; index as i">
+                        <ul class="list-group" *ngFor="let categoria of service._categoria; index as i">
                             <li class="list-group-item">
-                                <div id="itemMenuPrincipal" (click)="visualizarSubcategoria(categoria.id)">
+                                <div id="itemMenuSecundario" (click)="visualizarSubcategoria(categoria.id)">
                                     <a data-toggle="collapse" routerLink="/listaProductos/{{categoria.id}}/null">{{categoria.name}}</a>
                                     <span class="mr-3" ></span>
                                 </div>

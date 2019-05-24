@@ -8,14 +8,14 @@ import { ParametrosFiltro } from 'src/app/clases/ParametrosFiltro';
   providedIn: 'root'
 })
 export class ProductsService {
+
   //Funciona como cache de productos
-  private productos : Producto[];
+  public productos : Producto[];
 
   //Url para obtener los productos
   public _urlProducto : string;
 
   private nombreFiltrar : string;
-  prothis: any;
 
   //Constructor del servicio
   constructor(private http: HttpClient) { 
@@ -34,9 +34,6 @@ export class ProductsService {
     this.productos = productosIniciales;
   }
 
-  /*Si bien se podria haber filtrado con pipes, esto mapeado a gran escala de productos
-    es super ineficiente para Angular ya que en cada cambio de algun input el pipe hace
-    ejecutar todo el ciclo de vida al componente. */
     
   //Ordena los productos en vista por el orden enviado por parametro
   ordenarProductos(productosDesordenados : Producto[], orden: string) {
@@ -80,10 +77,10 @@ export class ProductsService {
     }
   }
 
+  
   setNombreFiltrar(nombre :string){
     this.nombreFiltrar = nombre;
     this.productos = this.productos.filter(producto => producto.name.search(nombre));
-    console.log(this.productos);
   }
 
   

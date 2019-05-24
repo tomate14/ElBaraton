@@ -41,9 +41,12 @@ li.list-group-item{
     font-family: var(--estilo-letra);
 }
 
-#itemMenuPrincipal{
+#itemMenuPrincipal, #itemMenuSecundario{
   animation: fadein 2s;  
   font-size: 1.5em;
+}
+#itemMenuSecundario{
+  font-size: 1.2em;
 }
 
 
@@ -69,5 +72,6 @@ li.list-group-item{
 .list-group-item {
   border: 0px;
   background-color: transparent;
+  padding: .75rem 0.4rem;
 }
 
