@@ -9,13 +9,12 @@ import { ParametrosFiltro } from 'src/app/clases/ParametrosFiltro';
 })
 export class ProductsService {
   //Funciona como cache de productos
-  private productos : Producto[];
+  public productos : Producto[];
 
   //Url para obtener los productos
   public _urlProducto : string;
 
   private nombreFiltrar : string;
-  prothis: any;
 
   //Constructor del servicio
   constructor(private http: HttpClient) { 

@@ -17,7 +17,7 @@
 
 
                     <div class="collapse" [ngClass]="{ 'show':itemColapsado }" >
-                        <ul class="list-group" *ngFor="let categoria of categorias; index as i">
+                        <ul class="list-group" *ngFor="let categoria of service._categoria; index as i">
                             <li class="list-group-item">
                                 <div id="itemMenuPrincipal" (click)="visualizarSubcategoria(categoria.id)">
                                     <a data-toggle="collapse" routerLink="/listaProductos/{{categoria.id}}/null">{{categoria.name}}</a>

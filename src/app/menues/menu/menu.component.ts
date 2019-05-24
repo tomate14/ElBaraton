@@ -13,7 +13,6 @@ export class MenuComponent implements OnInit {
   private menuColapsado = null;
   private itemColapsado = null;
   private estadosPrimerasSubcategorias:Object[];
-  private categorias : Categoria[];
 
   constructor(private service: CategoriaService) {
     this.menuColapsado = false;
@@ -21,10 +20,10 @@ export class MenuComponent implements OnInit {
     this.estadosPrimerasSubcategorias = [];
     this.service.getCategorias().subscribe(data => {
       if(data["categories"] != null && data["categories"] != []){
-        this.categorias = data["categories"];
+        this.service._categoria = data["categories"];
       }
-      for(let index = 0; index < this.categorias.length; index++){
-        this.estadosPrimerasSubcategorias.push({id: this.categorias[index].id,mostrar:false});
+      for(let index = 0; index < this.service._categoria.length; index++){
+        this.estadosPrimerasSubcategorias.push({id: this.service._categoria[index].id,mostrar:false});
       }
     });
   }
