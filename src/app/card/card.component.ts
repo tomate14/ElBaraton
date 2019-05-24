@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter, DoCheck } from '@angula
 import { Producto } from '../clases/Producto';
 import { ItemCarrito } from '../clases/ItemCarrito';
 import { CarritoService } from 'src/services/carrito.service';
+import { ConfirmarService } from 'src/services/confirmar.service';
 
 @Component({
   selector: 'app-card',
@@ -18,14 +19,19 @@ export class CardComponent implements OnInit {
   @Output() eliminarClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() modificarCantidad: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(private service_carrito:CarritoService) { 
+  constructor(private service_carrito:CarritoService, private confirmationDialogService: ConfirmarService) { 
       this.carrito = [];
   }
 
   ngOnInit() {
     
   }
-
+  getColor(){
+    if(this.item.available){
+      return 'Si';
+    }
+    return 'No';
+  }
   agregarCarrito(){
     this.service_carrito.agregarCarrito(this.item);
   }
@@ -43,6 +49,15 @@ export class CardComponent implements OnInit {
   eliminar(item:Producto){
     this.service_carrito.eliminarItem(item);
     this.eliminarClicked.emit(true);  
+  }
+
+  abrirConfirmacion(item:Producto) {
+    this.confirmationDialogService.confirm('Confirmar operacion', '¿Desea eliminar el producto del carrito?')
+    .then((confirmed) => {
+        if(confirmed){
+          this.eliminar(item);
+        }
+    });
   }
 
 }

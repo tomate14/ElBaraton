@@ -1,4 +1,43 @@
-.colmenu {
+#contenedorPrincipal, #rowPrincipal{
+  height: 89%;
+}
+
+.colmenu,.colrouter{
     padding-left: 0px;
     padding-right: 0px;
+    background: linear-gradient(to bottom right, var(--color-primario), var(--color-secundario));    
+}
+
+.colmenu{
+    margin:10px 0px 50px 10px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    box-shadow: -2px 6px 10px 0px rgba(0,0,0,0.75);
+}
+.colrouter{
+    flex: 0 0 100%;
+    max-width: 73%;
+    box-shadow: 4px 6px 10px 1px rgba(0,0,0,0.75);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background: white;
+    margin: 10px 0px 50px 0px;
+}
+
+@media (max-width:767px) and (min-width:0px) {
+    .colmenu{
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        margin-right: 10px;
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+    .colrouter{
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        margin-right: 10px;
+        margin-left: 10px;
+        max-width: 95%;
+    }
+    
 }

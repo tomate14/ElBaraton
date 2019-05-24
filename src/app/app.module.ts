@@ -18,6 +18,10 @@ import { CardComponent } from './card/card.component';
 import { FiltroComponent } from './filtro/filtro.component';
 import { FormsModule } from '@angular/forms';
 import { MenuItemComponent } from './menues/menu-item/menu-item.component';
+import { MenuuserComponent } from './menues/menuuser/menuuser.component';
+import { ConfirmarComponent } from '../app/componentesgenerales/confirmar/confirmar.component';
+import { ConfirmarService } from 'src/services/confirmar.service';
+import { MensajeinicialComponent } from './mensajeinicial/mensajeinicial.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +33,12 @@ import { MenuItemComponent } from './menues/menu-item/menu-item.component';
     RouteviewComponent,
     CardComponent,
     FiltroComponent,
-    MenuItemComponent
+    MenuItemComponent,
+    MenuuserComponent,
+    ConfirmarComponent,
+    MensajeinicialComponent
   ],
+  entryComponents: [ConfirmarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -41,7 +49,8 @@ import { MenuItemComponent } from './menues/menu-item/menu-item.component';
   providers: [
     CategoriaService,
     ProductsService,
-    CarritoService
+    CarritoService,
+    ConfirmarService
   ],
   bootstrap: [AppComponent]
 })
