@@ -8,14 +8,17 @@ import { ConfirmarService } from 'src/services/confirmar.service';
   templateUrl: './carrito.component.html',
   styleUrls: ['./carrito.component.css']
 })
+
 export class CarritoComponent implements OnInit {
 
   private carrito : Producto[];
   private txt_stock:string = "Cantidad:";
+  private texto_boton:string;
   private carritoNoVacio:boolean;
 
   constructor(private service_carrito:CarritoService,private confirmationDialogService: ConfirmarService) { 
     this.carritoNoVacio = null;
+    this.texto_boton = "Finalizar Compra";
     
   }
   
