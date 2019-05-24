@@ -5,7 +5,7 @@
 .colmenu,.colrouter{
     padding-left: 0px;
     padding-right: 0px;
-    background: linear-gradient(to bottom right, #6dbccd, #89c9d3);    
+    background: linear-gradient(to bottom right, var(--color-primario), var(--color-secundario));    
 }
 
 .colmenu{

@@ -1,6 +1,7 @@
 import { Component, OnInit, } from '@angular/core';
 import { Producto } from '../../clases/Producto';
 import { CarritoService } from 'src/services/carrito.service';
+import { ConfirmarService } from 'src/services/confirmar.service';
 
 @Component({
   selector: 'app-carrito',
@@ -13,7 +14,7 @@ export class CarritoComponent implements OnInit {
   private txt_stock:string = "Cantidad:";
   private carritoNoVacio:boolean;
 
-  constructor(private service_carrito:CarritoService) { 
+  constructor(private service_carrito:CarritoService,private confirmationDialogService: ConfirmarService) { 
     this.carritoNoVacio = null;
     
   }
@@ -47,6 +48,15 @@ export class CarritoComponent implements OnInit {
     this.service_carrito.limpiarCarrito();
     this.carrito = this.service_carrito.getCarrito();
     this.carritoNoVacio = false;
+  }
+
+  public openConfirmationDialog() {
+    this.confirmationDialogService.confirm('Confirmar operacion', '¿Desea finalizar la compra?')
+    .then((confirmed) => {
+        if(confirmed){
+          this.onFinalizarCompra();
+        }
+    });
   }
 
 }

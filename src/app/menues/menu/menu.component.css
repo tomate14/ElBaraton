@@ -21,7 +21,7 @@
 }
 
 .navbar-toggler{
-  background: #7dc3d0;
+  background: var(--color-navbar);
 }
 
 a,li.list-group-item, #itemMenuPrincipal,  a:not([href]):not([tabindex]){
@@ -38,7 +38,7 @@ ul.list-group{
 }
 li.list-group-item{
     list-style:none;
-    font-family: 'Bungee';
+    font-family: var(--estilo-letra);
 }
 
 #itemMenuPrincipal{
