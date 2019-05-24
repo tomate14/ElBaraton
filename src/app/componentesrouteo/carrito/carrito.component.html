@@ -3,9 +3,9 @@
             <div *ngFor="let producto of carrito" class="col-sm-6 col-lg-4 col-xl-3">
                 <app-card 
                         [item]="producto"
-                        [carrito]="carrito"
                         [txt_stock]="txt_stock"
                         (eliminarClicked)="onEliminarClicked($event)"
+                        (modificarCantidad)="onModificarItemCarrito($event)"
                         [is_carrito]="true"></app-card>
                         
             </div>
