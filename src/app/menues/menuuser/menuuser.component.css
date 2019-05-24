@@ -1,6 +1,6 @@
 
 h6{
-    text-align: left;
+    text-align: center;
     color: white;  
 }
 
@@ -13,6 +13,8 @@ h6 i{
 }
 
 #card-img-top{
-    height: 50px;
-    border-radius: 30%;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
 }
+

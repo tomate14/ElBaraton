@@ -1,7 +1,7 @@
 h1#header{
     height: auto;
     font-family: var(--estilo-letra-titulo);
-    background: white;
+    background: transparent;
     text-align: center;
     color:  var(--color-primario); 
     font-size: 5em;

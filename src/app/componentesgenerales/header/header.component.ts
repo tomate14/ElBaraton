@@ -6,15 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  //public isCollapsed = null;
-  constructor() { }
+  private titulo:string;
+  constructor() {
+      this.titulo = "El Baraton";
+   }
 
   ngOnInit() {
-    //this.isCollapsed = false;
   }
 
   toggleNavbar(){
-    //this.isCollapsed = !this.isCollapsed;
   }
 
 }
