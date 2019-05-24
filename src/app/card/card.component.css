@@ -27,6 +27,7 @@
 .card-title {
     font-weight: 700;
     line-height: 1.2857em;
+    font-family: var(--estilo-letra);
     text-align: center;
     text-transform: uppercase;
 }
@@ -45,7 +46,7 @@
 
 @media (max-width:1299px) and (min-width:700px){
     .card-title{
-       font-size: 20px;
+       font-size: 17px;
     }
     .card-text{
         font-size: 14px;
@@ -55,35 +56,7 @@
         height: 30px;
     }
 }
-@media (max-width:700px) and (min-width:575px) {
-    .card-title{
-       font-size: 14px;
-    }
-    .card-text{
-        font-size: 13px;
-    }
-    .btnmodicantidad{
-        width: 30px;
-        height: 30px;
-    }
-}
 
-@media (max-width:574px) and (min-width:0px) {
-    .card-title{
-       font-size: 35px;
-    }
-    .card-text{
-        font-size: 20px;
-    }
-    
-    .btnmodicantidad{
-        width: 30px;
-        height: 30px;
-    }
-    .inputcantidad{
-        width: 100px;
-    }
-}
 
 .btnmodicantidad{
     padding: 0px;
@@ -108,7 +81,7 @@ input[type=number] {
 .card-text {
     clear: both;
     margin-top: .5em;
-    color: black
+    color: black;
 }
 
 

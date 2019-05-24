@@ -1,0 +1,6 @@
+#mensajeInicial{
+    font-family: var(--estilo-letra);
+    font-size: 30px;
+    text-align: center;
+    padding-top: 5%;
+}

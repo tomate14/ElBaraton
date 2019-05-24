@@ -1,9 +1,9 @@
 h1#header{
     height: auto;
-    font-family: 'Bungee', cursive;
+    font-family: var(--estilo-letra-titulo);
     background: white;
     text-align: center;
-    color:  #6dbccd; 
+    color:  var(--color-primario); 
     font-size: 5em;
     margin-bottom: 0px;
     border-color: black;    

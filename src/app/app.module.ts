@@ -19,6 +19,9 @@ import { FiltroComponent } from './filtro/filtro.component';
 import { FormsModule } from '@angular/forms';
 import { MenuItemComponent } from './menues/menu-item/menu-item.component';
 import { MenuuserComponent } from './menues/menuuser/menuuser.component';
+import { ConfirmarComponent } from '../app/componentesgenerales/confirmar/confirmar.component';
+import { ConfirmarService } from 'src/services/confirmar.service';
+import { MensajeinicialComponent } from './mensajeinicial/mensajeinicial.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +34,11 @@ import { MenuuserComponent } from './menues/menuuser/menuuser.component';
     CardComponent,
     FiltroComponent,
     MenuItemComponent,
-    MenuuserComponent
+    MenuuserComponent,
+    ConfirmarComponent,
+    MensajeinicialComponent
   ],
+  entryComponents: [ConfirmarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -43,7 +49,8 @@ import { MenuuserComponent } from './menues/menuuser/menuuser.component';
   providers: [
     CategoriaService,
     ProductsService,
-    CarritoService
+    CarritoService,
+    ConfirmarService
   ],
   bootstrap: [AppComponent]
 })

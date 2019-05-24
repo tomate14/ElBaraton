@@ -5,7 +5,7 @@ h6{
 }
 
 h6 i{
-    font-family: 'Bungee';
+    font-family: var(--estilo-letra);
 }
 #divMenuuser{
     text-align: center;

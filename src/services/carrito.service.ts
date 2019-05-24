@@ -34,7 +34,7 @@ export class CarritoService {
     item_carrito = this.getItemCarrito(item);
 
     /* Si ya lo tengo agrego uno a la cantidad */     
-    if(item_carrito === undefined){
+    if((item_carrito === undefined)||(item_carrito == null)){
       this._carrito.push(<Producto>{id:item.id, quantity:1, name:item.name ,price:item.price });
     }else{
       item_carrito.quantity++;

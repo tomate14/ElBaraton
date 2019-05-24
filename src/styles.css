@@ -2,3 +2,12 @@
 html, body{
     height: 100%;
 }
+
+:root{
+    --color-primario:  rgb(33, 137, 163);
+    --color-secundario: #89c9d3;
+    --color-navbar : rgb(67, 158, 179);
+    --estilo-letra-titulo:'Bangers', cursive;
+    --estilo-letra : 'Bungee', cursive;
+    --estilo-letra-card : 'Roboto', sans-serif;
+}
