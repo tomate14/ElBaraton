@@ -16,6 +16,7 @@ export class CardComponent implements OnInit {
   private carrito:Producto[];
   @Input() txt_stock:string;
   @Output() eliminarClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() modificarCantidad: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private service_carrito:CarritoService) { 
       this.carrito = [];
@@ -27,22 +28,20 @@ export class CardComponent implements OnInit {
 
   agregarCarrito(){
     this.service_carrito.agregarCarrito(this.item);
-    this.carrito = this.service_carrito.getCarrito();
   }
 
   incrementar(){
    this.service_carrito.modificarCantidad('incrementar',this.item);
-   this.carrito = this.service_carrito.getCarrito();
+   this.modificarCantidad.emit(true);
   }
 
   decrementar(){
      this.service_carrito.modificarCantidad('decrementar',this.item);
-     this.carrito = this.service_carrito.getCarrito();
+     this.modificarCantidad.emit(true);
   }
   
   eliminar(item:Producto){
     this.service_carrito.eliminarItem(item);
-    this.carrito = this.service_carrito.getCarrito();
     this.eliminarClicked.emit(true);  
   }
 

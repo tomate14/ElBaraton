@@ -9,7 +9,7 @@ export class CarritoService {
   public _urlCarrito : string = "carrito"
   private _carrito : Producto[];
   constructor() { 
-    this._carrito = [];
+    this._carrito =  this.getCarrito();
   }
 
 
@@ -68,10 +68,9 @@ export class CarritoService {
   getCarrito(){
     if(this._carrito == null){
       this._carrito = [];
-      return this._carrito;
-    }else{
-      return JSON.parse(localStorage.getItem(this._urlCarrito));
     }
+    return JSON.parse(localStorage.getItem(this._urlCarrito));
+    
   }
 
   guardarCarrito(carrito: Producto[]){

@@ -29,7 +29,10 @@ export class CarritoComponent implements OnInit {
 
   }
 
-
+  onModificarItemCarrito(modificarCantidad : boolean){
+    this.carrito = this.service_carrito.getCarrito();
+  }
+  
   onEliminarClicked(eliminar : boolean){
     if(eliminar){
       this.carrito = this.service_carrito.getCarrito();
