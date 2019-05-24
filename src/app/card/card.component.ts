@@ -13,70 +13,36 @@ export class CardComponent implements OnInit {
 
   @Input() is_carrito: string;
   @Input() item: Producto;
-  @Input() carrito:Producto[];
+  private carrito:Producto[];
   @Input() txt_stock:string;
   @Output() eliminarClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() modificarCantidad: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private service_carrito:CarritoService) { 
-    
+      this.carrito = [];
   }
 
   ngOnInit() {
     
   }
 
-  getItemCarrito() : Producto{
-    return this.carrito.find(item => item.id == this.item.id);
+  agregarCarrito(){
+    this.service_carrito.agregarCarrito(this.item);
   }
 
-  agregarCarrito(){
+  incrementar(){
+   this.service_carrito.modificarCantidad('incrementar',this.item);
+   this.modificarCantidad.emit(true);
+  }
 
-    /*Busco el item en el carrito*/ 
-    let item_carrito = null;
-   
-    item_carrito = this.getItemCarrito();
-
-    /* Si ya lo tengo agrego uno a la cantidad */     
-    if(item_carrito === undefined){
-      this.carrito.push(<Producto>{id:this.item.id, quantity:1, name:this.item.name ,price:this.item.price });
-    }else{
-      item_carrito.quantity++;
-    }
-    /* Guardo el carrito actualizado */
-    this.service_carrito.guardarCarrito(this.carrito);
- }
-
- incrementar(){
-  /*Busco el item en el carrito*/ 
-  let item_carrito = null;
-   
-  item_carrito = this.getItemCarrito();
-  item_carrito.quantity++;
-
-   /* Guardo el carrito actualizado */
-   this.service_carrito.guardarCarrito(this.carrito);
-
- }
-
- decrementar(){
-  /*Busco el item en el carrito*/ 
-    let item_carrito = null;
-    
-    item_carrito = this.getItemCarrito();
-    if(item_carrito.quantity > 0){
-      item_carrito.quantity--;
-    }    
-    /* Guardo el carrito actualizado */
-    this.service_carrito.guardarCarrito(this.carrito);
+  decrementar(){
+     this.service_carrito.modificarCantidad('decrementar',this.item);
+     this.modificarCantidad.emit(true);
   }
   
   eliminar(item:Producto){
-      this.carrito = this.carrito.filter(function(producto){ 
-        return producto.id != item.id
-      });
-      this.service_carrito.guardarCarrito(this.carrito);
-      this.eliminarClicked.emit(true);  
-      //Falta re renderizar el componente
+    this.service_carrito.eliminarItem(item);
+    this.eliminarClicked.emit(true);  
   }
 
 }
