@@ -26,7 +26,12 @@ export class CardComponent implements OnInit {
   ngOnInit() {
     
   }
-
+  getColor(){
+    if(this.item.available){
+      return 'Si';
+    }
+    return 'No';
+  }
   agregarCarrito(){
     this.service_carrito.agregarCarrito(this.item);
   }
