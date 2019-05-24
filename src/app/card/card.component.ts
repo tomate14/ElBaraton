@@ -20,7 +20,6 @@ export class CardComponent implements OnInit {
   @Output() modificarCantidad: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private service_carrito:CarritoService, private confirmationDialogService: ConfirmarService) { 
-      this.carrito = [];
   }
 
   ngOnInit() {

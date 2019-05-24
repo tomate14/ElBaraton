@@ -16,7 +16,7 @@ export class MenuItemComponent implements OnInit {
 
   private aux :any;
 
-  constructor( private route: ActivatedRoute,  private router: Router) {  
+  constructor( private router: Router) {  
      this.hijoColapsado = false;
      this.textoABuscar = "null";
    }
@@ -29,12 +29,6 @@ export class MenuItemComponent implements OnInit {
 
   Colapsar(){
     this.hijoColapsado = !this.hijoColapsado;
-  }
-
-  cambiarFiltroName(filtro:string, categoria:Categoria){
-    this.textoABuscar = filtro;
-    this.router.navigate(['listaProductos', categoria.id, filtro]);
-
   }
 
 

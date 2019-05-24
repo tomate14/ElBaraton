@@ -9,6 +9,7 @@ export class CarritoService {
   public _urlCarrito : string = "carrito"
   private _carrito : Producto[];
   constructor() { 
+    this._carrito = [];
     this._carrito =  this.getCarrito();
   }
 
@@ -66,10 +67,11 @@ export class CarritoService {
   }
 
   getCarrito(){
+    this._carrito = JSON.parse(localStorage.getItem(this._urlCarrito));
     if(this._carrito == null){
-      this._carrito = [];
+      return this._carrito = [];
     }
-    return JSON.parse(localStorage.getItem(this._urlCarrito));
+    return this._carrito;
     
   }
 
@@ -77,6 +79,13 @@ export class CarritoService {
     localStorage.setItem(this._urlCarrito,JSON.stringify(carrito));
   }
 
+  getTotalCarrito(){
+    let total = 0;
+    this._carrito.forEach((producto)=>{
+        total +=( parseInt(producto.price.replace("$","").replace(",",""))*producto.quantity)
+    });
+    return total;
+  }
   limpiarCarrito(){
     localStorage.removeItem(this._urlCarrito);
   }
