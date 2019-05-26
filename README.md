@@ -27,8 +27,8 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 
-
---> Si no esta instalado, descargarlo desde la pagina oficial.
+Si se tiene instalado el node, descargarlo de la pagina oficial. https://nodejs.org/es/
+--> Si no esta instalado, descargarlo e instalarlo
 
 Verificar si tenemos instalado npm con (npm -v)
 -->Si no esta instalado 
@@ -41,10 +41,20 @@ Verificar si se tiene instalado Angular 7 con (ng -v)
 	--> Ejecutar npm uninstall -g @angular/cli para borrar versiones viejas de angular CLI
 	--> Ejecutar npm install -g @angular/cli@latest para instalar la ultima version del CLI
 
-Instalar bootstrap (npm install bootstrap --save)
-
 Descargar el repo
-Ejecutar npm install para descargar el node_module e installar la aplicacion
+   Se puede secargar via ssh o via html. 
+   -->El link del repo via ssh es: git@github.com:tomate14/ElBaraton.git
+   -->El link via https es: https://github.com/tomate14/ElBaraton.git.
+   --> En caso de que no deje clonarlo, la url del repo es: https://github.com/tomate14/ElBaraton.
+		--> Bajarlo manual
 
-Consideraciones en el ejercicio:
-	--> El filtro por Stock se hace por stock mayor o igual al indicado
+Ejecutar npm install para descargar el node_module e installar la aplicacion.
+
+Luego hay que ejecutar ng serve y entrar a http://localhost:4200 que es el puerto que levanta la aplicacion por defecto angular
+
+Consideraciones de la resolucion:
+	--> Quiza se podria mejorar la forma de obtener los productos en base a la cantidad que se obtengan. En este caso, la cantidad era fija y en un volumen no muy grande. 
+	--> Se agrego una confirmacion extra al momento de eliminar un producto del carrito o al momento de finalizar la compra.
+	--> Los datos del contacto estan hardcodeados con el fin de mostrar como se veria la informacion del usuario.
+	--> No se especifico hacer una ventana de login, por lo que no se hizo.
+	
